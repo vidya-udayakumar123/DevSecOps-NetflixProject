@@ -18,9 +18,8 @@ jobs:
         with:
           credentials_json: '${{ secrets.TEST_NETFLIX }}'
 
-      # Building Docker image for deidentify only if there are changes
-      - name: Checking the path and contents of the file
+      - name: Build docker image
         run: |
-          pwd
-          ls
-          ll
+          docker build -t netflix_replica1 .
+          docker images
+
